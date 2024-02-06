@@ -12,6 +12,7 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   console.log(session)
+  console.log("HERE",api)
 
   return (
     <main>

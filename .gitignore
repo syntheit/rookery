@@ -1,2 +1,11 @@
 node_modules
 .next
+*.env
+*.env.example
+*.env.local
+*.env.staging
+
+# Ignore vim files:
+*~
+*.swp
+*.swo
