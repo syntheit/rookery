@@ -10,11 +10,12 @@ import {
   DropdownMenu,
   Avatar,
 } from "@nextui-org/react";
-import { usersRouter } from "~/server/api/routers/users";
 
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 
 export default async function NavbarRookery() {
+  
+
 
   return (
     <Navbar>
@@ -55,7 +56,7 @@ export default async function NavbarRookery() {
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
+            <DropdownItem key="profile" className="gap-2 h-14">
               <p className="font-semibold">Signed in as</p>
               <p className="font-semibold">zoey@example.com</p>
             </DropdownItem>
