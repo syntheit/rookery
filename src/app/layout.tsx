@@ -4,8 +4,7 @@ import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { Providers } from "./providers";
-import { getServerAuthSession } from "~/server/auth";
-import NavbarRookery from "./components/NavbarRookery";
+import { ClientSafeProvider, getProviders } from "next-auth/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,18 +22,16 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerAuthSession();
-  console.log(session);
+  const providers = await getProviders();
+  const discord: ClientSafeProvider = providers!.discord;
 
   return (
     <html lang="en">
       <body
-        className={`bg-background text-foreground dark font-sans ${inter.variable}`}
+        className={`h-full bg-background font-sans text-foreground dark ${inter.variable}`}
       >
         <TRPCReactProvider>
-          <Providers>
-            {children}
-          </Providers>
+          <Providers loginProvider={discord}>{children}</Providers>
         </TRPCReactProvider>
       </body>
     </html>
