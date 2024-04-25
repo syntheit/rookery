@@ -35,6 +35,7 @@ export default function NavbarRookery({
 }) {
   const { data: session, status } = useSession();
 
+
   return (
     <Navbar className="absolute">
       <NavbarBrand>
@@ -112,6 +113,7 @@ export default function NavbarRookery({
             endContent={<DiscordIcon />}
             as={Link}
             onClick={() => signIn(loginProvider.id)}
+            className="bg-[#5865F2]"
           >
             Sign in with Discord
           </Button>
